@@ -444,10 +444,13 @@ body::before{
   background:var(--rainbow);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
   opacity:.85;animation:slide 8s linear infinite
 }
-.lore__num{grid-column:1;align-self:start}
-.lore__body{grid-column:2}
+/* All three children are pinned to row 1 explicitly. Without grid-row the
+   picture (column 3, but second in the markup) advances the auto-placement
+   cursor past the text's column and drops the text into a second row. */
+.lore__num{grid-column:1;grid-row:1;align-self:start}
+.lore__body{grid-column:2;grid-row:1}
 /* the picture alternates sides down the chapter list */
-.lore__fig{grid-column:3;margin:0;position:relative;aspect-ratio:1;overflow:hidden;
+.lore__fig{grid-column:3;grid-row:1;margin:0;position:relative;aspect-ratio:1;overflow:hidden;
   clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
   box-shadow:0 20px 50px rgba(0,0,0,.55)}
 .lore__fig img{width:100%;height:100%;object-fit:cover;cursor:pointer;
@@ -456,8 +459,8 @@ body::before{
 .lore__fig::after{content:'';position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(210deg,rgba(126,222,47,.16),transparent 55%,rgba(18,38,224,.3))}
 .lore__item:nth-child(even){grid-template-columns:clamp(78px,8vw,132px) clamp(170px,20vw,250px) minmax(0,1fr)}
-.lore__item:nth-child(even) .lore__fig{grid-column:2}
-.lore__item:nth-child(even) .lore__body{grid-column:3}
+.lore__item:nth-child(even) .lore__fig{grid-column:2;grid-row:1}
+.lore__item:nth-child(even) .lore__body{grid-column:3;grid-row:1}
 
 .lore__body h3{margin:0 0 12px;font-family:var(--display);font-weight:400;text-transform:uppercase;
   font-size:clamp(20px,2.4vw,31px);letter-spacing:.01em;line-height:1.1}
@@ -465,11 +468,16 @@ body::before{
 .lore__body p:last-child{margin-bottom:0}
 .lore__body b{color:var(--green-lit)}
 .lore__body em{font-style:italic;color:var(--paper)}
+/* Single column: release the explicit row so the three blocks stack, and let
+   `order` put the picture underneath the text on every chapter. */
 @media (max-width:860px){
-  .lore__item,.lore__item:nth-child(even){grid-template-columns:1fr;gap:14px}
+  .lore__item,.lore__item:nth-child(even){grid-template-columns:minmax(0,1fr);gap:14px}
   .lore__num,.lore__body,.lore__fig,
-  .lore__item:nth-child(even) .lore__fig,.lore__item:nth-child(even) .lore__body{grid-column:1}
-  .lore__fig{aspect-ratio:16/10;order:3}
+  .lore__item:nth-child(even) .lore__fig,
+  .lore__item:nth-child(even) .lore__body{grid-column:1;grid-row:auto}
+  .lore__num{order:1}
+  .lore__body{order:2}
+  .lore__fig{order:3;aspect-ratio:16/10}
   .lore__item:hover{transform:none}
 }
 

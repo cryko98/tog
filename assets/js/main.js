@@ -5,10 +5,12 @@
    page (nav, hero, footer, finale) reads from here automatically.
    ============================================================ */
 const CONFIG = {
-  CA:        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // <-- paste the real contract address
-  X_URL:     '',                              // <-- e.g. 'https://x.com/mogtoad'
-  BUY_URL:   '',                              // <-- e.g. 'https://jup.ag/swap/SOL-<CA>'
-  CHART_URL: '',                              // <-- e.g. 'https://dexscreener.com/solana/<pair>'
+  CA:        'GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
+  X_URL:     'https://x.com/togonsol',
+  BUY_URL:   'https://pump.fun/coin/GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
+  // DexScreener resolves the mint address itself, so this link starts working
+  // on its own as soon as the coin is live and the first trade is indexed.
+  CHART_URL: 'https://dexscreener.com/solana/GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
   TELEGRAM:  ''                               // optional, unused unless you add a link
 };
 /* ========================================================== */

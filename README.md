@@ -9,10 +9,10 @@ Open `assets/js/main.js` and edit the `CONFIG` block at the very top:
 
 ```js
 const CONFIG = {
-  CA:        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // real contract address
-  X_URL:     '',                              // 'https://x.com/yourhandle'
-  BUY_URL:   '',                              // 'https://jup.ag/swap/SOL-<CA>'
-  CHART_URL: '',                              // 'https://dexscreener.com/solana/<pair>'
+  CA:        'GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
+  X_URL:     'https://x.com/togonsol',
+  BUY_URL:   'https://pump.fun/coin/<CA>',
+  CHART_URL: 'https://dexscreener.com/solana/<CA>',
   TELEGRAM:  ''
 };
 ```
@@ -20,6 +20,10 @@ const CONFIG = {
 Everything on the page reads from here — nav, hero, contract boxes, footer, the final CTA.
 While a URL is left empty, that link shows a small yellow "soon" dot and pops a toast
 instead of going nowhere.
+
+The buy and chart links both resolve the mint address, so they light up on their own
+once the coin is live and indexed — no edit needed at launch. Add `TELEGRAM` only if
+you also add a link that uses it.
 
 ## Structure
 

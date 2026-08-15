@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="swamp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOG TOAD ($TOG) — The Toad That Mogs</title>
+<meta name="description" content="MOG TOAD ($TOG) on Solana. The cat mogged the internet. The toad mogged the cat. Low-poly, high-voltage, permanently unbothered.">
+<meta name="theme-color" content="#050a2e">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="MOG TOAD ($TOG) — The Toad That Mogs">
+<meta property="og:description" content="The cat mogged the internet. The toad mogged the cat. $TOG on Solana.">
+<meta property="og:image" content="/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MOG TOAD ($TOG) — The Toad That Mogs">
+<meta name="twitter:description" content="The cat mogged the internet. The toad mogged the cat. $TOG on Solana.">
+<meta name="twitter:image" content="/assets/img/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<!-- Scroll reveals only hide themselves when JS is actually running, so a
+     blocked/failed script can never leave the page blank. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__toad"><img src="/assets/img/tog-md.jpg" alt="" width="480" height="480"></div>
+    <div class="preloader__bar"><span id="preBar"></span></div>
+    <div class="preloader__label"><span id="preText">DRAINING THE SWAMP</span> <b id="prePct">0%</b></div>
+  </div>
+</div>
+
+<!-- ============ CHROME ============ -->
+<div class="scroll-rail"><span id="scrollBar"></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top">
+    <span class="nav__mark"><img src="/assets/img/tog-sm.jpg" alt="MOG TOAD logo" width="256" height="256"></span>
+    <span class="nav__name">MOG<em>TOAD</em></span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#lore">Lore</a>
+    <a href="#archive">Archive</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#buy">How&nbsp;to&nbsp;Buy</a>
+    <a href="#mogmeter">Mog&nbsp;Meter</a>
+    <a href="#mogmap">Mogmap</a>
+  </nav>
+  <div class="nav__actions">
+    <a class="icon-btn" data-social="x" href="#" target="_blank" rel="noopener" aria-label="MOG TOAD on X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.5 22H2.4l7.6-8.7L1.2 2h6.8l4.7 6.2L18.9 2Zm-1.1 18.1h1.7L7.3 3.8H5.5l12.3 16.3Z"/></svg>
+    </a>
+    <a class="btn btn--pill" data-buy href="#buy"><span>Buy $TOG</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a href="#lore">Lore</a>
+  <a href="#archive">Archive</a>
+  <a href="#tokenomics">Tokenomics</a>
+  <a href="#buy">How to Buy</a>
+  <a href="#mogmeter">Mog Meter</a>
+  <a href="#mogmap">Mogmap</a>
+  <a href="#faq">FAQ</a>
+  <a class="drawer__x" data-social="x" href="#" target="_blank" rel="noopener">Follow on X →</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas class="hero__mesh" id="mesh" aria-hidden="true"></canvas>
+  <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
+
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><i class="dot"></i> Solana &nbsp;/&nbsp; Fair launch &nbsp;/&nbsp; 100% unbothered</p>
+
+      <h1 class="hero__title">
+        <span class="line" data-scramble="MOG">MOG</span>
+        <span class="line line--chrome" data-scramble="TOAD">TOAD</span>
+      </h1>
+
+      <p class="hero__lede">
+        The cat mogged the internet.<br>
+        <b>The toad mogged the cat.</b>
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--big" data-buy href="#buy"><span>Buy $TOG</span></a>
+        <a class="btn btn--ghost" data-chart href="#tokenomics"><span>Chart</span></a>
+      </div>
+
+      <div class="ca" id="caBox" role="button" tabindex="0" aria-label="Copy contract address">
+        <span class="ca__tag">CA</span>
+        <code class="ca__val" id="caVal">xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>
+        <span class="ca__copy">COPY</span>
+      </div>
+
+      <ul class="hero__stats">
+        <li><b data-count="1000000000" data-suffix="">0</b><span>Supply</span></li>
+        <li><b data-count="0" data-suffix="/0">0</b><span>Tax</span></li>
+        <li><b>BURNED</b><span>Liquidity</span></li>
+        <li><b>REVOKED</b><span>Mint &amp; Freeze</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__art" id="heroArt">
+      <div class="hero__ring" aria-hidden="true"></div>
+      <div class="hero__ring hero__ring--2" aria-hidden="true"></div>
+      <img class="hero__toad" id="heroToad" src="/assets/img/tog-hero.jpg" alt="MOG TOAD — a low-poly green toad wearing rainbow visor sunglasses" width="900" height="900" fetchpriority="high" decoding="async">
+      <div class="hero__badge">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs><path id="circ" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
+          <text><textPath href="#circ">$TOG • THE FULL MOG • $TOG • THE FULL MOG • </textPath></text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-hint" href="#lore" aria-label="Scroll down"><i></i>SCROLL</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>RIBBIT&nbsp;<i>◆</i>&nbsp;THE FULL MOG&nbsp;<i>◆</i>&nbsp;$TOG&nbsp;<i>◆</i>&nbsp;LOW POLY HIGH VOLTAGE&nbsp;<i>◆</i>&nbsp;NEVER OUTMOGGED&nbsp;<i>◆</i>&nbsp;SWAMP SUPREMACY&nbsp;<i>◆</i>&nbsp;</span>
+    <span>RIBBIT&nbsp;<i>◆</i>&nbsp;THE FULL MOG&nbsp;<i>◆</i>&nbsp;$TOG&nbsp;<i>◆</i>&nbsp;LOW POLY HIGH VOLTAGE&nbsp;<i>◆</i>&nbsp;NEVER OUTMOGGED&nbsp;<i>◆</i>&nbsp;SWAMP SUPREMACY&nbsp;<i>◆</i>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ MEME WALL — two infinite rows, opposite directions ============ -->
+<section class="wall" aria-label="Meme wall">
+  <div class="wall__row" data-dir="left">
+    <div class="wall__track">
+      <button class="tile" data-lb="1"><img src="/assets/img/memes/thumb/mog-01.jpg" alt="MOG TOAD riding a flaming green bull" loading="lazy" width="640" height="640"><span>Bull run, literally</span></button>
+      <button class="tile" data-lb="6"><img src="/assets/img/memes/thumb/mog-06.jpg" alt="MOG TOAD riding a breaching whale" loading="lazy" width="640" height="640"><span>Whale spotted</span></button>
+      <button class="tile" data-lb="19"><img src="/assets/img/memes/thumb/mog-19.jpg" alt="MOG TOAD on a lit-up ferris wheel" loading="lazy" width="640" height="640"><span>Top of the ride</span></button>
+      <button class="tile" data-lb="11"><img src="/assets/img/memes/thumb/mog-11.jpg" alt="MOG TOAD skydiving above the clouds" loading="lazy" width="640" height="640"><span>No parachute, no problem</span></button>
+      <button class="tile" data-lb="21"><img src="/assets/img/memes/thumb/mog-21.jpg" alt="MOG TOAD driving a convertible through the desert" loading="lazy" width="640" height="640"><span>No destination, still first</span></button>
+      <button class="tile" data-lb="7"><img src="/assets/img/memes/thumb/mog-07.jpg" alt="MOG TOAD snowboarding down a mountain" loading="lazy" width="640" height="640"><span>Downhill, unbothered</span></button>
+      <button class="tile" data-lb="20"><img src="/assets/img/memes/thumb/mog-20.jpg" alt="MOG TOAD in a hot air balloon above the clouds" loading="lazy" width="640" height="640"><span>Above the clouds</span></button>
+      <button class="tile" data-lb="22"><img src="/assets/img/memes/thumb/mog-22.jpg" alt="MOG TOAD hanging out of a helicopter over a city" loading="lazy" width="640" height="640"><span>Extraction complete</span></button>
+    </div>
+  </div>
+  <div class="wall__row" data-dir="right">
+    <div class="wall__track">
+      <button class="tile" data-lb="2"><img src="/assets/img/memes/thumb/mog-02.jpg" alt="MOG TOAD on a supercar in a neon city" loading="lazy" width="640" height="640"><span>Nought to mogged</span></button>
+      <button class="tile" data-lb="8"><img src="/assets/img/memes/thumb/mog-08.jpg" alt="MOG TOAD in a Formula 1 pit stop" loading="lazy" width="640" height="640"><span>Pit stop, same face</span></button>
+      <button class="tile" data-lb="13"><img src="/assets/img/memes/thumb/mog-13.jpg" alt="MOG TOAD eating ramen in a neon alley" loading="lazy" width="640" height="640"><span>Late night ramen</span></button>
+      <button class="tile" data-lb="12"><img src="/assets/img/memes/thumb/mog-12.jpg" alt="MOG TOAD hanging from a giant clock tower" loading="lazy" width="640" height="640"><span>Time is a construct</span></button>
+      <button class="tile" data-lb="15"><img src="/assets/img/memes/thumb/mog-15.jpg" alt="MOG TOAD reading in a vast old library" loading="lazy" width="640" height="640"><span>Reading his own whitepaper</span></button>
+      <button class="tile" data-lb="9"><img src="/assets/img/memes/thumb/mog-09.jpg" alt="MOG TOAD in a museum looking at his own portrait" loading="lazy" width="640" height="640"><span>Admiring earlier work</span></button>
+      <button class="tile" data-lb="18"><img src="/assets/img/memes/thumb/mog-18.jpg" alt="MOG TOAD holding a championship belt in a boxing ring" loading="lazy" width="640" height="640"><span>Undisputed</span></button>
+      <button class="tile" data-lb="4"><img src="/assets/img/memes/thumb/mog-04.jpg" alt="MOG TOAD sitting on the moon with Earth behind him" loading="lazy" width="640" height="640"><span>The moon was closer than expected</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LORE ============ -->
+<section class="sec lore" id="lore">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">Chapter book of the swamp</p>
+      <h2 class="sec__title">THE <em>GOSPEL</em><br>OF THE GREEN</h2>
+      <p class="sec__sub">Every meme has an origin. This one has a swamp, a pair of stolen sunglasses, and a cat who blinked first.</p>
+    </header>
+
+    <ol class="lore__list">
+      <li class="lore__item reveal">
+        <div class="lore__num">I</div>
+        <figure class="lore__fig"><img src="/assets/img/memes/thumb/mog-16.jpg" alt="MOG TOAD meditating in a Japanese rock garden" loading="lazy" width="640" height="640" data-lb="16"></figure>
+        <div class="lore__body">
+          <h3>Before the chain, there was mud</h3>
+          <p>Long before anyone minted anything, the swamp ran on a single law: whoever sat highest on the rock got the sun. For nine thousand seasons the toad sat on the rock. Not because he fought for it. Because nobody ever thought to ask him to move.</p>
+        </div>
+      </li>
+      <li class="lore__item reveal">
+        <div class="lore__num">II</div>
+        <figure class="lore__fig"><img src="/assets/img/memes/thumb/mog-17.jpg" alt="MOG TOAD in a submarine looking out at glowing green water" loading="lazy" width="640" height="640" data-lb="17"></figure>
+        <div class="lore__body">
+          <h3>The visor at the bottom of the water</h3>
+          <p>A storm dropped something into the swamp that did not belong to the swamp — a slab of rainbow glass that bent the light into seven separate opinions. The toad put it on. The frogs stopped croaking. The dragonflies changed direction. Nobody could see his eyes anymore, and that turned out to be the entire point.</p>
+        </div>
+      </li>
+      <li class="lore__item reveal">
+        <div class="lore__num">III</div>
+        <figure class="lore__fig"><img src="/assets/img/memes/thumb/mog-18.jpg" alt="MOG TOAD raising a championship belt in a packed arena" loading="lazy" width="640" height="640" data-lb="18"></figure>
+        <div class="lore__body">
+          <h3>The cat came down from the timeline</h3>
+          <p>You know the cat. Iridescent stare, zero words, one job: <em>mogging</em>. It walked the whole internet and left every avatar feeling two inches shorter. Then it reached the swamp, sat down opposite the rock, and locked eyes with a creature it could not see the eyes of.</p>
+          <p>They stared for eleven minutes. The cat blinked. The toad did not move a single polygon.</p>
+        </div>
+      </li>
+      <li class="lore__item reveal">
+        <div class="lore__num">IV</div>
+        <figure class="lore__fig"><img src="/assets/img/memes/thumb/mog-14.jpg" alt="MOG TOAD banging a gavel at an auction over a glowing green gem" loading="lazy" width="640" height="640" data-lb="14"></figure>
+        <div class="lore__body">
+          <h3>Those are not his tears</h3>
+          <p>Two blue drops sit permanently on his cheeks. They were never his. They belong to everyone he has ever outmogged, and he keeps them where the light hits, the way other people keep trophies on a shelf.</p>
+        </div>
+      </li>
+      <li class="lore__item reveal">
+        <div class="lore__num">V</div>
+        <figure class="lore__fig"><img src="/assets/img/memes/thumb/mog-05.jpg" alt="MOG TOAD at a trading desk covered in green candle charts" loading="lazy" width="640" height="640" data-lb="5"></figure>
+        <div class="lore__body">
+          <h3>The swamp went on-chain</h3>
+          <p>The rock is now a ticker. The swamp is now Solana. Sitting still is now a strategy. <b>$TOG</b> does not promise utility, roadmaps to Mars, or a partnership with a bank. It promises one thing: whatever room it walks into, it is the most unbothered thing in it.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ARCHIVE ============ -->
+<section class="sec arch" id="archive">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">Twenty-two documented sightings</p>
+      <h2 class="sec__title">THE MOG <em>ARCHIVE</em></h2>
+      <p class="sec__sub">Every frame confirmed by the swamp council. Click any of them to open it full size.</p>
+    </header>
+
+    <div class="grid" id="grid">
+      <button class="tile tile--xl" data-lb="3"><img src="/assets/img/memes/thumb/mog-03.jpg" alt="MOG TOAD wearing a crown on an emerald throne" loading="lazy" width="640" height="640"><span>Throne of the swamp</span></button>
+      <button class="tile" data-lb="1"><img src="/assets/img/memes/thumb/mog-01.jpg" alt="MOG TOAD riding a flaming green bull" loading="lazy" width="640" height="640"><span>Bull run, literally</span></button>
+      <button class="tile" data-lb="2"><img src="/assets/img/memes/thumb/mog-02.jpg" alt="MOG TOAD on a supercar in a neon city" loading="lazy" width="640" height="640"><span>Nought to mogged</span></button>
+      <button class="tile tile--w" data-lb="4"><img src="/assets/img/memes/thumb/mog-04.jpg" alt="MOG TOAD sitting on the moon with Earth behind him" loading="lazy" width="640" height="640"><span>The moon was closer than expected</span></button>
+      <button class="tile" data-lb="5"><img src="/assets/img/memes/thumb/mog-05.jpg" alt="MOG TOAD at a trading desk of green candle charts" loading="lazy" width="640" height="640"><span>Green candles only</span></button>
+      <button class="tile" data-lb="6"><img src="/assets/img/memes/thumb/mog-06.jpg" alt="MOG TOAD riding a breaching whale at night" loading="lazy" width="640" height="640"><span>Whale spotted</span></button>
+      <button class="tile" data-lb="7"><img src="/assets/img/memes/thumb/mog-07.jpg" alt="MOG TOAD snowboarding down a mountain" loading="lazy" width="640" height="640"><span>Downhill, unbothered</span></button>
+      <button class="tile" data-lb="8"><img src="/assets/img/memes/thumb/mog-08.jpg" alt="MOG TOAD in a Formula 1 pit stop" loading="lazy" width="640" height="640"><span>Pit stop, same face</span></button>
+      <button class="tile tile--xl" data-lb="9"><img src="/assets/img/memes/thumb/mog-09.jpg" alt="MOG TOAD in a museum looking at his own gilded portrait" loading="lazy" width="640" height="640"><span>Admiring earlier work</span></button>
+      <button class="tile" data-lb="10"><img src="/assets/img/memes/thumb/mog-10.jpg" alt="MOG TOAD in front of a huge green explosion" loading="lazy" width="640" height="640"><span>Liquidity event</span></button>
+      <button class="tile" data-lb="11"><img src="/assets/img/memes/thumb/mog-11.jpg" alt="MOG TOAD skydiving above the clouds" loading="lazy" width="640" height="640"><span>No parachute, no problem</span></button>
+      <button class="tile" data-lb="12"><img src="/assets/img/memes/thumb/mog-12.jpg" alt="MOG TOAD hanging from a giant clock tower over a city" loading="lazy" width="640" height="640"><span>Time is a construct</span></button>
+      <button class="tile" data-lb="13"><img src="/assets/img/memes/thumb/mog-13.jpg" alt="MOG TOAD eating ramen in a rainy neon alley" loading="lazy" width="640" height="640"><span>Late night ramen, early morning gains</span></button>
+      <button class="tile tile--w" data-lb="14"><img src="/assets/img/memes/thumb/mog-14.jpg" alt="MOG TOAD banging a gavel at an auction over a glowing green gem" loading="lazy" width="640" height="640"><span>Sold, to the toad in the visor</span></button>
+      <button class="tile" data-lb="15"><img src="/assets/img/memes/thumb/mog-15.jpg" alt="MOG TOAD reading in a vast old library" loading="lazy" width="640" height="640"><span>Reading his own whitepaper</span></button>
+      <button class="tile" data-lb="16"><img src="/assets/img/memes/thumb/mog-16.jpg" alt="MOG TOAD meditating in a Japanese rock garden" loading="lazy" width="640" height="640"><span>Inner peace, outer mog</span></button>
+      <button class="tile" data-lb="17"><img src="/assets/img/memes/thumb/mog-17.jpg" alt="MOG TOAD in a submarine looking out at glowing green water" loading="lazy" width="640" height="640"><span>Where the visor was found</span></button>
+      <button class="tile" data-lb="18"><img src="/assets/img/memes/thumb/mog-18.jpg" alt="MOG TOAD raising a championship belt in a packed arena" loading="lazy" width="640" height="640"><span>Undisputed</span></button>
+      <button class="tile" data-lb="19"><img src="/assets/img/memes/thumb/mog-19.jpg" alt="MOG TOAD at the top of a lit-up ferris wheel" loading="lazy" width="640" height="640"><span>Top of the ride</span></button>
+      <button class="tile" data-lb="20"><img src="/assets/img/memes/thumb/mog-20.jpg" alt="MOG TOAD in a hot air balloon above the clouds" loading="lazy" width="640" height="640"><span>Above the clouds, below the effort</span></button>
+      <button class="tile" data-lb="21"><img src="/assets/img/memes/thumb/mog-21.jpg" alt="MOG TOAD driving a convertible down a desert highway" loading="lazy" width="640" height="640"><span>No destination, still first</span></button>
+      <button class="tile" data-lb="22"><img src="/assets/img/memes/thumb/mog-22.jpg" alt="MOG TOAD hanging out of a helicopter over a city at night" loading="lazy" width="640" height="640"><span>Extraction complete</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOKENOMICS ============ -->
+<section class="sec tok" id="tokenomics">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">The numbers, unbothered</p>
+      <h2 class="sec__title">TOKEN<em>OMICS</em></h2>
+    </header>
+
+    <div class="tok__hero reveal">
+      <div class="tok__supply">
+        <span class="tok__supplyLabel">Total supply</span>
+        <b class="tok__supplyNum" data-count="1000000000">0</b>
+        <span class="tok__supplyTag">$TOG — no more, ever</span>
+      </div>
+      <div class="tok__ca">
+        <span>Contract address</span>
+        <code data-ca>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>
+        <button class="btn btn--mini" data-copy-ca>Copy</button>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card__i">01</span>
+        <h3>0 / 0 Tax</h3>
+        <p>Buy tax zero. Sell tax zero. Nobody is skimming the swamp water.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__i">02</span>
+        <h3>LP Burned</h3>
+        <p>Liquidity torched and the keys thrown into the mud. The pool stays where it is.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__i">03</span>
+        <h3>Mint Revoked</h3>
+        <p>The supply is frozen at one billion. No stealth prints, no midnight dilution.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__i">04</span>
+        <h3>Freeze Revoked</h3>
+        <p>Your wallet is yours. No authority can lock a single $TOG in place.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO BUY ============ -->
+<section class="sec buy" id="buy">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">Four hops</p>
+      <h2 class="sec__title">HOW TO <em>HOP IN</em></h2>
+      <p class="sec__sub">Never touched Solana before? It takes about four minutes and one deep breath.</p>
+    </header>
+
+    <div class="steps">
+      <div class="steps__rail" aria-hidden="true"></div>
+      <article class="step reveal">
+        <b>01</b>
+        <h3>Get a wallet</h3>
+        <p>Install <a href="https://phantom.app" target="_blank" rel="noopener">Phantom</a> or <a href="https://solflare.com" target="_blank" rel="noopener">Solflare</a>. Write your seed phrase on paper. Never type it anywhere else.</p>
+      </article>
+      <article class="step reveal">
+        <b>02</b>
+        <h3>Fund it with SOL</h3>
+        <p>Buy SOL on any exchange and send it to your wallet address. Leave a little extra for network fees.</p>
+      </article>
+      <article class="step reveal">
+        <b>03</b>
+        <h3>Open a DEX</h3>
+        <p>Head to Jupiter or Raydium, connect your wallet, and paste the $TOG contract address from this page.</p>
+      </article>
+      <article class="step reveal">
+        <b>04</b>
+        <h3>Swap &amp; sit still</h3>
+        <p>Confirm the swap. Then do the hardest part of the entire process: absolutely nothing.</p>
+      </article>
+    </div>
+
+    <div class="buy__cta reveal">
+      <a class="btn btn--big" data-buy href="#"><span>Swap on Jupiter</span></a>
+      <a class="btn btn--ghost" data-chart href="#"><span>View chart</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOG METER ============ -->
+<section class="sec meter" id="mogmeter">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">Certified swamp diagnostics</p>
+      <h2 class="sec__title">THE <em>MOG</em> METER</h2>
+      <p class="sec__sub">Slide it. See where you land. The toad is at the top and he is not coming down.</p>
+    </header>
+
+    <div class="meter__box reveal">
+      <div class="meter__readout">
+        <b id="meterVal">50</b><span>/100</span>
+      </div>
+      <div class="meter__barwrap">
+        <div class="meter__bar"><span id="meterFill"></span></div>
+        <input id="meterInput" class="meter__input" type="range" min="0" max="100" value="50" aria-label="Mog level">
+        <div class="meter__ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <p class="meter__verdict" id="meterVerdict">Comfortably mid. The toad has already forgotten you.</p>
+      <button class="btn btn--big btn--mog" id="mogBtn"><span>PRESS TO MOG</span></button>
+      <p class="meter__counter">You have mogged <b id="mogCount">0</b> times.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section class="sec map" id="mogmap">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="kicker">A roadmap, technically</p>
+      <h2 class="sec__title">THE <em>MOGMAP</em></h2>
+    </header>
+
+    <div class="tl">
+      <div class="tl__spine" aria-hidden="true"></div>
+      <article class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <img class="tl__img" src="/assets/img/memes/thumb/mog-10.jpg" alt="MOG TOAD in front of a huge green explosion" loading="lazy" width="640" height="640" data-lb="10">
+        <span class="tl__phase">Phase 0</span>
+        <h3>The Spawn</h3>
+        <ul><li>Token deployed on Solana</li><li>Liquidity burned, authorities revoked</li><li>First hundred amphibians on board</li></ul>
+      </article>
+      <article class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <img class="tl__img" src="/assets/img/memes/thumb/mog-13.jpg" alt="MOG TOAD eating ramen in a rainy neon alley" loading="lazy" width="640" height="640" data-lb="13">
+        <span class="tl__phase">Phase 1</span>
+        <h3>The Croak</h3>
+        <ul><li>Community takeover of the timeline</li><li>DexScreener &amp; DexTools profiles claimed</li><li>Meme arsenal deployed daily</li></ul>
+      </article>
+      <article class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <img class="tl__img" src="/assets/img/memes/thumb/mog-02.jpg" alt="MOG TOAD on a supercar in a neon city" loading="lazy" width="640" height="640" data-lb="2">
+        <span class="tl__phase">Phase 2</span>
+        <h3>The Visor Glow</h3>
+        <ul><li>CEX listings and tracker rankings</li><li>Collabs with the wider frog &amp; cat cinematic universe</li><li>Ten thousand holders, zero urgency</li></ul>
+      </article>
+      <article class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <img class="tl__img" src="/assets/img/memes/thumb/mog-03.jpg" alt="MOG TOAD wearing a crown on an emerald throne" loading="lazy" width="640" height="640" data-lb="3">
+        <span class="tl__phase">Phase 3</span>
+        <h3>The Full Mog</h3>
+        <ul><li>$TOG becomes the swamp's reserve currency</li><li>The cat is asked to leave</li><li>Toad still has not moved</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec faq" id="faq">
+  <div class="wrap wrap--narrow">
+    <header class="sec__head reveal">
+      <p class="kicker">Asked from the reeds</p>
+      <h2 class="sec__title">F<em>A</em>Q</h2>
+    </header>
+
+    <div class="acc">
+      <details class="reveal"><summary>What is MOG TOAD?</summary><p>A memecoin on Solana built around one low-poly toad in rainbow visor sunglasses. No utility, no roadmap to Mars — just a character, a community, and an unreasonable amount of confidence.</p></details>
+      <details class="reveal"><summary>Is it related to MOG the cat?</summary><p>Inspired by, not affiliated with. The cat taught the internet what mogging looks like. The toad simply did it better and with worse posture.</p></details>
+      <details class="reveal"><summary>Is the contract safe?</summary><p>Mint and freeze authorities are revoked and liquidity is burned. Always verify the contract address yourself on a Solana explorer before you swap anything.</p></details>
+      <details class="reveal"><summary>Is there a presale or a team allocation?</summary><p>No presale. No team wallet games. Fair launch, everyone buys the same way.</p></details>
+      <details class="reveal"><summary>Where can I buy $TOG?</summary><p>Any Solana DEX — Jupiter, Raydium — using the contract address at the top of this page. Copy it from here, never from a DM.</p></details>
+      <details class="reveal"><summary>Will the toad ever move?</summary><p>No.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA STRIP ============ -->
+<section class="finale">
+  <img class="finale__bg" src="/assets/img/memes/mog-04.jpg" alt="" loading="lazy" aria-hidden="true">
+  <canvas class="finale__mesh" id="mesh2" aria-hidden="true"></canvas>
+  <div class="finale__inner reveal">
+    <img src="/assets/img/tog-md.jpg" alt="" class="finale__toad" aria-hidden="true" loading="lazy" width="480" height="480">
+    <h2>DON'T GET<br><em>OUTMOGGED</em></h2>
+    <div class="finale__cta">
+      <a class="btn btn--big" data-buy href="#"><span>Buy $TOG</span></a>
+      <a class="btn btn--ghost" data-social="x" href="#" target="_blank" rel="noopener"><span>Follow on X</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <span class="nav__mark"><img src="/assets/img/tog-sm.jpg" alt="" width="256" height="256"></span>
+      <div>
+        <b>MOG TOAD</b>
+        <span>$TOG · Solana</span>
+      </div>
+    </div>
+    <nav class="foot__links" aria-label="Footer">
+      <a href="#lore">Lore</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#buy">How to Buy</a>
+      <a href="#mogmap">Mogmap</a>
+      <a href="#faq">FAQ</a>
+      <a data-social="x" href="#" target="_blank" rel="noopener">X</a>
+    </nav>
+  </div>
+  <div class="wrap foot__legal">
+    <p>$TOG is a meme coin with no intrinsic value and no expectation of financial return. There is no formal team or roadmap. This site is for entertainment purposes only and is not financial advice. Crypto is volatile — never spend more than you can comfortably lose.</p>
+    <p class="foot__copy">© <span id="year">2026</span> MOG TOAD. Not affiliated with MOG the cat, who is still recovering.</p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Meme viewer" aria-hidden="true">
+  <button class="lb__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <button class="lb__nav lb__nav--next" id="lbNext" aria-label="Next">&#8250;</button>
+  <figure class="lb__stage">
+    <img id="lbImg" alt="">
+    <figcaption><b id="lbCap"></b><span id="lbNum"></span></figcaption>
+  </figure>
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

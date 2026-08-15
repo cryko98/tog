@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+.vercel
+node_modules/
+*.log
+
+# Full-size meme renders (~2.5 MB each). The web-optimised JPEGs in
+# assets/img/memes/ are generated from these and are what ships.
+assets/_source/

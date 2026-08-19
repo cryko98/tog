@@ -200,7 +200,7 @@ body::before{
 .drawer a{font-family:var(--display);font-size:clamp(30px,9vw,52px);letter-spacing:.02em;line-height:1.25;
   color:var(--paper);opacity:.9;transition:.25s}
 .drawer a:hover{color:var(--green);transform:translateX(10px)}
-.drawer__x{font-size:18px !important;color:var(--green) !important;margin-top:22px;font-family:var(--mono) !important;letter-spacing:.14em}
+.drawer__social{font-size:18px !important;color:var(--green) !important;margin-top:22px;font-family:var(--mono) !important;letter-spacing:.14em}
 
 @media (max-width:1080px){
   .nav__links{display:none}

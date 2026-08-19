@@ -5,13 +5,14 @@
    page (nav, hero, footer, finale) reads from here automatically.
    ============================================================ */
 const CONFIG = {
-  CA:        'GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
-  X_URL:     'https://x.com/togonsol',
-  BUY_URL:   'https://pump.fun/coin/GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
-  // DexScreener resolves the mint address itself, so this link starts working
-  // on its own as soon as the coin is live and the first trade is indexed.
-  CHART_URL: 'https://dexscreener.com/solana/GJ5LjVgKmxMPy55rN1e1RcWT7nNYg3CnZccmFKXopump',
-  TELEGRAM:  ''                               // optional, unused unless you add a link
+  CA:        'xxxxxxxxxxxxxxxxxxxxxxxxxxx',  // <-- paste the real mint address at launch
+  TELEGRAM:  'https://t.me/togonsol',
+  // Both of these resolve the mint address on their own, so once the CA above
+  // is real they light up without any further edit:
+  //   BUY_URL:   'https://pump.fun/coin/' + CA
+  //   CHART_URL: 'https://dexscreener.com/solana/' + CA
+  BUY_URL:   '',
+  CHART_URL: ''
 };
 /* ========================================================== */
 
@@ -70,7 +71,7 @@ const CONFIG = {
       }
     });
 
-    link('[data-social="x"]', CONFIG.X_URL,     'X ACCOUNT DROPPING SOON');
+    link('[data-social="tg"]', CONFIG.TELEGRAM,  'TELEGRAM OPENING SOON');
     link('[data-chart]',      CONFIG.CHART_URL, 'CHART GOES LIVE AT LAUNCH');
 
     // "Buy" buttons fall back to the how-to-buy section instead of a dead link.
